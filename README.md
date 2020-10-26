@@ -2,7 +2,11 @@
 
 This fork adds id injection via query string and logging to a database endpoint.
 
-Original documentation is below.
+Original documentation is below the solid line.
+
+## Development
+
+No-tooling js; suggest a simple dev server, e.g. `python3 -m http.server`
 
 -----------------------------------
 
