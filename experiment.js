@@ -1,3 +1,5 @@
+const BASE_HUB_URL = "http://localhost:3000";
+
 /* ************************************ */
 /* Define helper functions */
 /* ************************************ */
@@ -22,6 +24,13 @@ var getInstructFeedback = function() {
 var getPracticeInstruct = function() {
   return '<div class = centerbox><p class = center-block-text>' + practice_feedback_text +
     '</p></div>'
+}
+
+function getHubLink() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const user = urlParams.get("user");
+  const index = urlParams.get("index");
+  return BASE_HUB_URL + "/" + user + "/" + index;
 }
 
 /* ************************************ */
@@ -487,7 +496,9 @@ var survey_block = {
 
 var end_block = {
   type: 'text',
-  text: '<div class = centerbox><p class = center-block-text>Congratulations for completing this task!</p><p class = center-block-text>Press <strong>enter</strong> to continue.</p></div>',
+  text: `<div class = centerbox><p class = center-block-text>You have completed this task.</p>
+  <p class = center-block-text><a href="${getHubLink()}">Click here to continue with the experiment.</a></p>
+  </div>`,
   cont_key: [13],
   data: {
     exp_id: "ravens"
