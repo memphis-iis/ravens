@@ -496,8 +496,8 @@ var survey_block = {
 
 var end_block = {
   type: 'text',
-  text: `<div class = centerbox><p class = center-block-text>Congratulations for completing this task!</p>
-  <p class = center-block-text><a href="${getHubLink()}">Click here to return to the hub.</a></p>
+  text: `<div class = centerbox><p class = center-block-text>You have completed this task.</p>
+  <p class = center-block-text><a href="${getHubLink()}">Click here to continue with the experiment.</a></p>
   </div>`,
   cont_key: [13],
   data: {
