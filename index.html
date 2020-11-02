@@ -40,6 +40,7 @@ $( document ).ready(function() {
 
                 //get the id from the query string
                 var id = new URLSearchParams(window.location.search).get('id');
+                var logUrl = new URLSearchParams(window.location.search).get('log');
 
                  // Serialize the data
                  var promise = new Promise(function(resolve, reject) {
@@ -55,7 +56,7 @@ $( document ).ready(function() {
                      $.ajax({
                          type: "POST",
                          //url: '/save',
-                         url: 'https://logging.olney.ai/datawhys/log',
+                         url: `${logUrl}/datawhys/log`,
                         //  data: { "data": data },
                          data: JSON.stringify({ "username": id, "json": data }),
                         //  success: function(){ document.location = "/next" },

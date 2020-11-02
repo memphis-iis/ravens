@@ -1,5 +1,3 @@
-const BASE_HUB_URL = "http://localhost:3000";
-
 /* ************************************ */
 /* Define helper functions */
 /* ************************************ */
@@ -28,9 +26,10 @@ var getPracticeInstruct = function() {
 
 function getHubLink() {
   const urlParams = new URLSearchParams(window.location.search);
+  const hub = urlParams.get("hub");
   const user = urlParams.get("user");
   const index = urlParams.get("index");
-  return BASE_HUB_URL + "/" + user + "/" + index;
+  return hub + "/" + user + "/" + index;
 }
 
 /* ************************************ */
