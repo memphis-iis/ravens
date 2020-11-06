@@ -56,7 +56,7 @@ $( document ).ready(function() {
                      $.ajax({
                          type: "POST",
                          //url: '/save',
-                         url: `${logUrl}/datawhys/log`,
+                         url: `${logUrl}`, //datawhys/log`,
                         //  data: { "data": data },
                          data: JSON.stringify({ "username": id, "json": data }),
                         //  success: function(){ document.location = "/next" },
