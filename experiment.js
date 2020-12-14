@@ -29,7 +29,8 @@ function getHubLink() {
   const hub = urlParams.get("hub");
   const user = urlParams.get("user");
   const index = urlParams.get("index");
-  return hub + "/" + user + "/" + index;
+  const condition = urlParams.get("condition");
+  return hub + "/" + user + "/" + index + "/" + condition;
 }
 
 /* ************************************ */
