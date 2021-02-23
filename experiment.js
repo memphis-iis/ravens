@@ -27,7 +27,7 @@ var getPracticeInstruct = function() {
 function getHubLink() {
   const urlParams = new URLSearchParams(window.location.search);
   const hub = urlParams.get("hub");
-  const user = urlParams.get("user");
+  const user = urlParams.get("id");
   const index = urlParams.get("index");
   return hub + "/" + user + "/" + index;
 }
