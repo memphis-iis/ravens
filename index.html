@@ -40,7 +40,8 @@ $( document ).ready(function() {
 
                 //get the id from the query string
                 var id = new URLSearchParams(window.location.search).get('user');
-                var logUrl = new URLSearchParams(window.location.search).get('log');
+                var log = new URLSearchParams(window.location.search).get('log');
+                var logUrl = decodeURIComponent(log);
 
                  // Serialize the data
                  var promise = new Promise(function(resolve, reject) {
