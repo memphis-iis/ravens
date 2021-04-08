@@ -492,11 +492,35 @@ var survey_block = {
   show_clickable_nav: true,
   allow_backward: true,
   required: fillArray([true], 18),
+  on_finish: function(data) {
+    var id = new URLSearchParams(window.location.search).get('user');
+    var log = new URLSearchParams(window.location.search).get('log');
+    var logUrl = decodeURIComponent(log);
+
+     // Serialize the data
+     var promise = new Promise(function(resolve, reject) {
+         var data = jsPsych.data.dataAsJSON();
+         resolve(data);
+     })
+
+     console.log("Logging Ravenish data for id: " + id)
+
+     promise.then(function(data) {
+         $.ajax({
+            type: "POST",
+            url: `${logUrl}`,
+            data: JSON.stringify({ "username": id, "json": data }),
+            dataType: 'json',
+            contentType: 'application/json',
+         });
+     })
+  }
 };
 
 var end_block = {
   type: 'text',
   text: `<div class = centerbox><p class = center-block-text>You have completed this task.</p>
+
   <p class = center-block-text><a href="${getHubLink()}">Click here to continue with the experiment.</a></p>
   </div>`,
   cont_key: [13],
